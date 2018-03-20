@@ -1,17 +1,17 @@
 import React from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import routes from './routes';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import rootReducer from './reducers';
+import configureStore from './store/configureStore';
 
-const store = createStore(rootReducer);
+const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App />
+    <Router children={routes} />
   </Provider>,
   document.getElementById('root')
 );
