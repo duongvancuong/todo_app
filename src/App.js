@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import PropTypes from 'prop-types';
 import './App.css';
-import Footer from './components/Footer'
-import AddTodo from './containers/AddTodo'
-import VisibleTodoList from './containers/VisibleTodoList'
-
+import Header from './common/Header';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <AddTodo />
-        <VisibleTodoList />
-        <Footer />
+      <div className="container-fluid text-center">
+        <Header />
+        {this.props.children}
       </div>
     );
   }
 }
+
+App.propTypes = {
+  children: PropTypes.element
+};
 
 export default App;

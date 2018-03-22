@@ -1,17 +1,19 @@
 import React from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import { render } from 'react-dom';
+import { Router } from 'react-router-dom';
+import routes from './routes';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import rootReducer from './reducers';
+import configureStore from './store/configureStore';
+import createHashHistory from 'history/createHashHistory';
 
-const store = createStore(rootReducer);
+const history = createHashHistory();
+const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App />
+    <Router history={history} children={routes} />
   </Provider>,
   document.getElementById('root')
 );
