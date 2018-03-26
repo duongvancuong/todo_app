@@ -3,21 +3,44 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../services/user/index';
 import { requestLoginAction } from '../actions/userActions';
-import Login from '../components/Login';
-export default class LoginContainer extends Component {
+import LoginForm from '../components/LoginForm';
+
+class LoginContainer extends Component {
   constructor(){
     super();
+    this.state = {
+      errors: {},
+      user: {
+        email: '',
+        password: ''
+      }
+    };
     this.handleLogin = this.handleLogin.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  handleLogin(data) {
-    this.props.dispatch(requestLoginAction(data));
+  handleLogin(event) {
+    event.preventDefault();
+
+    this.props.dispatch(requestLoginAction(this.state.user));
+  }
+
+  onChange(event) {
+    const field = event.target.name;
+    const user = this.state.user;
+    user[field] = event.target.value;
+    this.setState({ user });
   }
 
   render() {
     return (
       <div>
-        <Login handleLogin={this.handleLogin} />
+        <LoginForm
+          handleLogin={this.handleLogin}
+          onChange={this.onChange}
+          errors={this.state.errors}
+          user={this.state.user}
+        />
       </div>
     )
   }
@@ -27,9 +50,8 @@ LoginContainer.propTypes = {
   handleLogin: PropTypes.func.isRequired,
 }
 
-mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   const auth_token = state;
-
 }
 
 export default connect(mapStateToProps)(LoginContainer);

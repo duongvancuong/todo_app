@@ -1,22 +1,21 @@
 import { UnauthenticatedRequest } from '../../api';
-import config from '../config';
+import config from '../../config';
 import { URL } from './constants';
 
 const CONFIG_OPTION = {
-  baseURL: config.baseURL,
+  baseURL: 'http://localhost:3000',
   timeout: 10000,
   params:{},
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
-    Authorization: basicAuth(),
+    'Content-Type': 'application/json'
   }
 };
 
 export const login = (data) => {
-  params = {
+  const params = {
     email: data.email,
-    password: data,email
+    password: data.password
   }
 
   return UnauthenticatedRequest(CONFIG_OPTION).post({

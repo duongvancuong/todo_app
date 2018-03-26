@@ -4,7 +4,7 @@ import * as types from '../constants/actionTypes';
 
 export function* loginUser(data) {
   try {
-    const auth_token = yield call(login, data);
+    const auth_token = yield call(login, data.data);
     yield [
       put({type: types.AUTHENTICATED, auth_token}),
     ];
