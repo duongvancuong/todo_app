@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../services/user/index';
 import { requestLoginAction } from '../actions/userActions';
 import LoginForm from '../components/LoginForm';
 

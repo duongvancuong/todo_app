@@ -3,7 +3,7 @@ import config from '../../config';
 import { URL } from './constants';
 
 const CONFIG_OPTION = {
-  baseURL: 'http://localhost:3000',
+  baseURL: config.baseURL,
   timeout: 10000,
   params:{},
   headers: {
