@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const localStorageKey = 'react_app_state';
 
-export const saveState = () => {
+export const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem(localStorageKey, serializedState);
