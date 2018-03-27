@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { requestLoginAction } from '../actions/userActions';
 import LoginForm from '../components/LoginForm';
@@ -45,12 +44,11 @@ class LoginContainer extends Component {
   }
 }
 
-LoginContainer.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-}
-
 const mapStateToProps = (state) => {
-  const auth_token = state;
+  const { auth } = state;
+  return {
+    auth_token: auth.auth_token,
+  }
 }
 
 export default connect(mapStateToProps)(LoginContainer);
