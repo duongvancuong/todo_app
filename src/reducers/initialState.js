@@ -1,4 +1,5 @@
 export default {
   images: [],
-  videos: []
+  videos: [],
+  auth_token: {}
 };
