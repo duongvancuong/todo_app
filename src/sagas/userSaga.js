@@ -2,17 +2,24 @@ import { put, call } from 'redux-saga/effects';
 import { login, register } from '../services/user';
 import * as types from '../constants/actionTypes';
 
-const auth = (data) =>({
+const auth_login = (data) =>({
   isAuthenticated: true,
   token: data.token.token,
   refresh_token: data.token.refresh_token,
   expired_at: data.token.expired_at,
 });
 
+const auth_register = (data) =>({
+  isAuthenticated: true,
+  token: data.auth_token.token,
+  refresh_token: data.auth_token.refresh_token,
+  expired_at: data.auth_token.expired_at,
+});
+
 export function* loginUser(data) {
   try {
     const auth_token = yield call(login, data.data);
-    const payload = auth(auth_token);
+    const payload = auth_login(auth_token);
     yield [
       put({type: types.AUTHENTICATED, payload}),
     ];
@@ -24,7 +31,7 @@ export function* loginUser(data) {
 export function* registerUser(data) {
   try {
     const auth_token = yield call(register, data.data);
-    const payload = auth(auth_token);
+    const payload = auth_register(auth_token);
     yield [
       put({type: types.REGISTER_SUCCESS, payload}),
     ];
