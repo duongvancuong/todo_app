@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { requestLoginAction } from '../actions/userActions';
 import LoginForm from '../components/LoginForm';
+import { Redirect } from 'react-router-dom';
 
 class LoginContainer extends Component {
   constructor(){
@@ -31,6 +32,13 @@ class LoginContainer extends Component {
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' }}
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return (
+        <Redirect to={from} />
+      )
+    }
     return (
       <div>
         <LoginForm
@@ -45,9 +53,9 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { auth } = state;
+  const { isAuthenticated } = state.auth;
   return {
-    auth_token: auth.auth_token,
+    isAuthenticated,
   }
 }
 
