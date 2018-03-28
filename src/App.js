@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './App.css';
 import Header from './common/Header';
+import HomePage from './components/HomePage'
 
 class App extends Component {
   render() {
+    const { isAuthenticated } = this.props;
     return (
       <div className="container-fluid text-center">
-        <Header />
-        {this.props.children}
+        <Header isAuthenticated={isAuthenticated}/>
+        <HomePage />
       </div>
     );
   }
 }
 
-App.propTypes = {
-  children: PropTypes.element
-};
-
-export default App;
+const mapStateToProps = (state) => {
+  const { isAuthenticated } = state.auth;
+  return {
+    isAuthenticated,
+  }
+}
+export default connect(mapStateToProps)(App);
