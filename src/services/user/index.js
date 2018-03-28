@@ -1,6 +1,6 @@
 import { UnauthenticatedRequest } from '../../api';
 import config from '../../config';
-import { URL } from './constants';
+import { URL_LOGIN, URL_REGISTER } from './constants';
 
 const CONFIG_OPTION = {
   baseURL: config.baseURL,
@@ -19,9 +19,23 @@ export const login = (data) => {
   }
 
   return UnauthenticatedRequest(CONFIG_OPTION).post({
-    url: URL,
+    url: URL_LOGIN,
     params
   }).then((res) => {
+    return res.data;
+  });
+};
+
+export const register = (data) => {
+  const params = {
+    email: data.email,
+    name: data.name,
+    password: data.password
+  }
+  return UnauthenticatedRequest(CONFIG_OPTION).post({
+    url: URL_REGISTER,
+    params
+  }).then((res)=>{
     return res.data;
   });
 };

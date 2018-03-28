@@ -10,6 +10,7 @@ const Header = ({isAuthenticated}) => (
           {isAuthenticated ? <Link className="btn btn-navbar" to="library">Library</Link> : null}
           {isAuthenticated ? <Link className="btn btn-navbar" to="todo">Todo</Link> : null}
           {isAuthenticated ? null : <Link className="btn btn-navbar" to="auth/login">Log In</Link>}
+          {isAuthenticated ? null : <Link className="btn btn-navbar" to="auth/sign-up">Sign Up</Link>}
         </nav>
       </div>
     </div>
