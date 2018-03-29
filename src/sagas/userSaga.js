@@ -1,5 +1,5 @@
-import { put, call } from 'redux-saga/effects';
-import { login, register } from '../services/user';
+import { put, call, select } from 'redux-saga/effects';
+import { login, register, logout } from '../services/user';
 import * as types from '../constants/actionTypes';
 
 const auth_login = (data) =>({
@@ -15,6 +15,10 @@ const auth_register = (data) =>({
   refresh_token: data.auth_token.refresh_token,
   expired_at: data.auth_token.expired_at,
 });
+
+const auth_logout = {
+  isAuthenticated: false,
+}
 
 export function* loginUser(data) {
   try {
@@ -39,3 +43,17 @@ export function* registerUser(data) {
     yield put({type: types.REGISTER_ERROR, error});
   }
 };
+
+export function* logoutUser() {
+  try {
+    const token = yield select(getToken)
+    yield call(logout, token);
+    yield [
+      put({type: types.LOGOUT_SUCCESS, auth_logout}),
+    ];
+  } catch (error) {
+    yield put({type: types.LOGOUT_ERROR, error});
+  }
+};
+
+const getToken = (state) => state.auth.token

@@ -1,6 +1,6 @@
-import { UnauthenticatedRequest } from '../../api';
+import { UnauthenticatedRequest, AutheticatedRequest } from '../../api';
 import config from '../../config';
-import { URL_LOGIN, URL_REGISTER } from './constants';
+import { URL_LOGIN, URL_REGISTER, URL_LOGOUT } from './constants';
 
 const CONFIG_OPTION = {
   baseURL: config.baseURL,
@@ -35,6 +35,20 @@ export const register = (data) => {
   return UnauthenticatedRequest(CONFIG_OPTION).post({
     url: URL_REGISTER,
     params
+  }).then((res)=>{
+    return res.data;
+  });
+};
+
+export const logout = (token) => {
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: token,
+  }
+  const CONFIG_OPTION_AUTHENTICATION = {...CONFIG_OPTION, headers}
+  return AutheticatedRequest(CONFIG_OPTION_AUTHENTICATION).delete({
+    url: URL_LOGOUT
   }).then((res)=>{
     return res.data;
   });
