@@ -3,6 +3,7 @@ import MediaGalleryPage from './containers/MediaGalleryPage';
 import AppTodo from './components/AppTodo'
 import LoginContainer from './containers/LoginContainer';
 import SignUpContainer from './containers/SignUpContainer';
+import Logout from './containers/Logout';
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
   {
     'path': '/auth/sign-up',
     'component': SignUpContainer,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/auth/logout',
+    'component': Logout,
     'isRequireAuthenticated': false
   }
 ];

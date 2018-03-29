@@ -39,3 +39,17 @@ export const register = (data) => {
     return res.data;
   });
 };
+
+export const register = (data) => {
+  const params = {
+    email: data.email,
+    name: data.name,
+    password: data.password
+  }
+  return UnauthenticatedRequest(CONFIG_OPTION).post({
+    url: URL_REGISTER,
+    params
+  }).then((res)=>{
+    return res.data;
+  });
+};

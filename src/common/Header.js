@@ -11,6 +11,9 @@ const Header = ({isAuthenticated}) => (
           {isAuthenticated ? <Link className="btn btn-navbar" to="todo">Todo</Link> : null}
           {isAuthenticated ? null : <Link className="btn btn-navbar" to="auth/login">Log In</Link>}
           {isAuthenticated ? null : <Link className="btn btn-navbar" to="auth/sign-up">Sign Up</Link>}
+          {isAuthenticated ? null :
+            <Link className="btn btn-navbar"
+              to={{ pathname:"auth/logout", state: {logout: true}}}>Logout</Link>}
         </nav>
       </div>
     </div>
