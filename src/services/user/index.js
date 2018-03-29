@@ -23,6 +23,8 @@ export const login = (data) => {
     params
   }).then((res) => {
     return res.data;
+  }).catch(({response}) => {
+    return response.data;
   });
 };
 
@@ -37,6 +39,8 @@ export const register = (data) => {
     params
   }).then((res)=>{
     return res.data;
+  }).catch((error) => {
+    return error.data;
   });
 };
 
@@ -51,5 +55,7 @@ export const logout = (token) => {
     url: URL_LOGOUT
   }).then((res)=>{
     return res.data;
+  }).catch((error) => {
+    return error.data;
   });
 };

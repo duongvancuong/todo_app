@@ -2,11 +2,12 @@ import { put, call, select } from 'redux-saga/effects';
 import { login, register, logout } from '../services/user';
 import * as types from '../constants/actionTypes';
 
-const auth_login = (data) =>({
+const auth_login = (token) =>({
   isAuthenticated: true,
-  token: data.token.token,
-  refresh_token: data.token.refresh_token,
-  expired_at: data.token.expired_at,
+  token: token.token,
+  refresh_token: token.refresh_token,
+  expired_at: token.expired_at,
+  errors: {},
 });
 
 const auth_register = (data) =>({
@@ -14,21 +15,26 @@ const auth_register = (data) =>({
   token: data.auth_token.token,
   refresh_token: data.auth_token.refresh_token,
   expired_at: data.auth_token.expired_at,
+  errors: {},
 });
 
 const auth_logout = {
   isAuthenticated: false,
+  errors: {},
 }
 
 export function* loginUser(data) {
   try {
-    const auth_token = yield call(login, data.data);
-    const payload = auth_login(auth_token);
+    const { token, error_code } = yield call(login, data.data);
+    if (error_code) {
+      throw new Error(error_code);
+    }
+    const payload = auth_login(token);
     yield [
       put({type: types.AUTHENTICATED, payload}),
     ];
-  } catch (error) {
-    yield put({type: types.AUTHENTICATE_ERROR, error});
+  } catch (error_code) {
+    yield put({type: types.AUTHENTICATE_ERROR, error_code });
   }
 };
 
