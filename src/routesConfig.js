@@ -2,6 +2,7 @@ import App from './App';
 import MediaGalleryPage from './containers/MediaGalleryPage';
 import AppTodo from './components/AppTodo'
 import LoginContainer from './containers/LoginContainer';
+import SignUpContainer from './containers/SignUpContainer';
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
   {
     'path': '/auth/login',
     'component': LoginContainer,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/auth/sign-up',
+    'component': SignUpContainer,
     'isRequireAuthenticated': false
   }
 ];

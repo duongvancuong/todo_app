@@ -5,6 +5,8 @@ export default function (state = initialState.auth, action) {
   switch (action.type) {
     case types.AUTHENTICATED:
       return {...state, ...action.payload };
+    case types.REGISTER_SUCCESS:
+      return {...state, ...action.payload};
     default:
       return state;
   }
