@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { requestLogoutAction } from '../actions/userActions'
 
 class Logout extends Component {
   componentDidMount() {
-    this.props.dispatch(requestLogoutAction(this.props.token));
+    const { logout } = this.props.location.state || { logout: false }
+    const { history } = this.props;
+    if (!logout) {
+      history.push('/');
+    } else {
+      this.props.dispatch(requestLogoutAction(this.props.token));
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { isAuthenticated, history } = nextProps;
+    if (!isAuthenticated) {
+      history.push('/');
+    }
   }
 
   render() {
-    const { logout } = this.props.location.state || { logout: false }
-    if (!logout) {
-      return (
-        <Redirect to='/' />
-      )
-    }
-
     return (
       <div>
         Logging out...
@@ -25,9 +31,9 @@ class Logout extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { token } = state.auth;
+  const { isAuthenticated } = state.auth;
   return {
-    token,
+    isAuthenticated,
   }
 };
 
