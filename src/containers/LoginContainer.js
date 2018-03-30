@@ -44,7 +44,7 @@ class LoginContainer extends Component {
         <LoginForm
           handleLogin={this.handleLogin}
           onChange={this.onChange}
-          errors={this.state.errors}
+          errors={this.props.errors}
           user={this.state.user}
         />
       </div>
@@ -53,9 +53,10 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { isAuthenticated } = state.auth;
+  const { isAuthenticated, errors } = state.auth;
   return {
     isAuthenticated,
+    errors,
   }
 }
 

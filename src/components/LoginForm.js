@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const error_type = {
+  color: 'red',
+};
+
 const LoginForm = ({ handleLogin, onChange, errors, user }) => (
   <div className = "container">
     <div className="wrapper">
@@ -26,6 +30,7 @@ const LoginForm = ({ handleLogin, onChange, errors, user }) => (
           placeholder="Password"
           required=""
         />
+        <p style={error_type} >{errors.error_code}</p>
         <button className="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
       </form>
     </div>

@@ -3,5 +3,6 @@ export default {
   videos: [],
   auth: {
     isAuthenticated: false,
-  }
+    errors: {},
+  },
 };
