@@ -5,4 +5,7 @@ export default {
     isAuthenticated: false,
     errors: {},
   },
+  instagramUser: {
+    userProfile: {},
+  },
 };
