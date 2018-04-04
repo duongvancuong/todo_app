@@ -4,6 +4,7 @@ import AppTodo from './components/AppTodo'
 import LoginContainer from './containers/LoginContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import Logout from './containers/Logout';
+import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
   {
     'path': '/auth/logout',
     'component': Logout,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/instagram/owner',
+    'component': InstagramUserProfileContainer,
     'isRequireAuthenticated': false
   }
 ];

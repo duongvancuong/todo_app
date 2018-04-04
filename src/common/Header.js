@@ -16,6 +16,7 @@ const Header = ({isAuthenticated}) => (
               to={{ pathname:"auth/logout", state: {logout: true}}}>Logout</Link>
             : null
             }
+          {isAuthenticated ? <Link className="btn btn-navbar" to="instagram/owner">instagram Profile</Link> : null}
         </nav>
       </div>
     </div>
