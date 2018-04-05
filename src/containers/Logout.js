@@ -13,11 +13,19 @@ class Logout extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // componentWillReceiveProps(nextProps) {
+  //   const { isAuthenticated, history } = nextProps;
+  //   if (!isAuthenticated) {
+  //     history.push('/');
+  //   }
+  // }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
     const { isAuthenticated, history } = nextProps;
     if (!isAuthenticated) {
       history.push('/');
     }
+    return null;
   }
 
   render() {
