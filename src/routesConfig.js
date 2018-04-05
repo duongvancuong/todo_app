@@ -5,6 +5,7 @@ import LoginContainer from './containers/LoginContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import Logout from './containers/Logout';
 import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
+import ProfileUserConext from './context/ProfileProvider';
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
   {
     'path': '/instagram/owner',
     'component': InstagramUserProfileContainer,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/study/react-context',
+    'component': ProfileUserConext,
     'isRequireAuthenticated': false
   }
 ];
