@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-const ProfileContext = React.createContext();
-const { Provider, Consumer} = ProfileContext;
+const ApplicationContext = React.createContext();
+const { Provider, Consumer} = ApplicationContext;
 const styles = {
   dark: {
     backgroundColor: "black",
@@ -13,6 +13,28 @@ const styles = {
   }
 };
 
+const withConsumer = BaseComponent => {
+  return class extends Component {
+    render() {
+      return(
+        <Consumer>
+          {theme => <BaseComponent {...this.props} theme={theme} /> }
+        </Consumer>
+      )
+    }
+  }
+};
+
+class ProfileFrom extends Component {
+  render () {
+    return (
+      <div style={styles[this.props.theme]}>{this.props.theme}</div>
+    )
+  }
+}
+
+const ProfileConsumerFrom = withConsumer(ProfileFrom);
+
 class ProfileProvider extends Component {
   state = { theme: "light" };
 
@@ -20,7 +42,6 @@ class ProfileProvider extends Component {
     this.setState(({ theme }) => ({
       theme: theme === "light" ? "dark" : "light"
     }));
-    console.log(this.state.theme);
   };
   render() {
     return (
@@ -32,13 +53,6 @@ class ProfileProvider extends Component {
   }
 }
 
-const ProfileConsumerFrom = props => {
-  return (
-    <Consumer>
-      {theme => (<div style={styles[theme]}>{theme}</div>)}
-    </Consumer>
-  );
-};
 
 export default class ProfileUserConext extends Component {
   render() {
