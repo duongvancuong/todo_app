@@ -21,10 +21,10 @@ class HttpRequest {
     });
   }
 
-  post({ url, params = {}, adapter }) {
+  post({ url, data = {}, adapter }) {
     return this.executeRequest(url, {
       method: 'POST',
-      params,
+      data,
       adapter,
     });
   }
@@ -76,11 +76,11 @@ export const UnauthenticatedRequest = (options= {}) => new HttpRequest({
 
 export const AuthenticatedFormDataRequest = (options = {}) => new HttpRequest({
   Accept: 'application/json',
-  'Content-Type': 'application/json',
+  'Content-Type': 'multipart/form-data',
   'X-Auth-Token': `${ACCESSTOKEN_VALUE_PREFIX}`,
 }, options);
 
 export const UnauthenticatedFormRequest = (options = {}) => new HttpRequest({
   Accept: 'application/json',
-  'Content-Type': 'application/json',
+  'Content-Type': 'multipart/form-data',
 }, options);
