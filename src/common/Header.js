@@ -17,6 +17,7 @@ const Header = ({isAuthenticated}) => (
             : null
             }
           {isAuthenticated ? <Link className="btn btn-navbar" to="instagram/owner">instagram Profile</Link> : null}
+          {isAuthenticated ? <Link className="btn btn-navbar" to="study/react-context">React Context</Link> : null}
         </nav>
       </div>
     </div>

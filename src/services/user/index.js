@@ -13,14 +13,9 @@ const CONFIG_OPTION = {
 };
 
 export const login = (data) => {
-  const params = {
-    email: data.email,
-    password: data.password
-  }
-
   return UnauthenticatedRequest(CONFIG_OPTION).post({
     url: URL_LOGIN,
-    params
+    data
   }).then((res) => {
     return res.data;
   }).catch(({response}) => {
@@ -29,14 +24,9 @@ export const login = (data) => {
 };
 
 export const register = (data) => {
-  const params = {
-    email: data.email,
-    name: data.name,
-    password: data.password
-  }
   return UnauthenticatedRequest(CONFIG_OPTION).post({
     url: URL_REGISTER,
-    params
+    data
   }).then((res)=>{
     return res.data;
   }).catch((error) => {
