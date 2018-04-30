@@ -6,6 +6,7 @@ import SignUpContainer from './containers/SignUpContainer';
 import Logout from './containers/Logout';
 import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
 import ProfileUserConext from './context/ProfileProvider';
+import renderDisplay from './hocs/DisplayListHOC';
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
   {
     'path': '/study/react-context',
     'component': ProfileUserConext,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/hocs/example',
+    'component': renderDisplay,
     'isRequireAuthenticated': false
   }
 ];
