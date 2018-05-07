@@ -7,6 +7,7 @@ import Logout from './containers/Logout';
 import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
 import ProfileUserConext from './context/ProfileProvider';
 import renderDisplay from './hocs/DisplayListHOC';
+import InstagramApp from './containers/InstagramApp'
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
   {
     'path': '/instagram/owner',
     'component': InstagramUserProfileContainer,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/instagram/app',
+    'component': InstagramApp,
     'isRequireAuthenticated': false
   },
   {
