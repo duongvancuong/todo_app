@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux'
-import todos from './todos'
+import { combineReducers } from 'redux';
+import { reducer as formReducer} from 'redux-form';
+import todos from './todos';
 import visibilityFilter from './visibilityFilter'
 import images from './imageReducer';
 import videos from './videoReducer';
@@ -12,5 +13,6 @@ export default combineReducers({
   images,
   videos,
   auth,
-  instagramUser
+  instagramUser,
+  form: formReducer,
 });
