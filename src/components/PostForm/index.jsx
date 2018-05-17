@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash';
 
 const warn = values => {
   const warnings = {}
-  if (!isEmpty(values)) {
+  if (!isEmpty(values.title)) {
     if (values.title.lenght > 10) {
       warnings.title = "Seem the title too lenght...";
     }

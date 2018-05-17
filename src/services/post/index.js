@@ -14,8 +14,14 @@ const CONFIG_OPTION = {
   }
 };
 
-export const getCategories = () => {
-  return AutheticatedRequest(CONFIG_OPTION).get({
+export const getCategories = (token) => {
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: token,
+  }
+  const CONFIG_OPTION_AUTHENTICATION = {...CONFIG_OPTION, headers}
+  return AutheticatedRequest(CONFIG_OPTION_AUTHENTICATION).get({
     url: URI_GET_CATEGORIES,
   }).then((res) => {
     return res.data;

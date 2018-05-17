@@ -8,4 +8,5 @@ export default {
   instagramUser: {
     userProfile: {},
   },
+  categories: {},
 };
