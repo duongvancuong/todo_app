@@ -19,7 +19,6 @@ class PostsContainer extends Component {
     console.log(123)
   }
 
-
   render() {
     const { categories } =  this.props;
     return (
