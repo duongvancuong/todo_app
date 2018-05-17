@@ -13,13 +13,7 @@ class Logout extends Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { isAuthenticated, history } = nextProps;
-  //   if (!isAuthenticated) {
-  //     history.push('/');
-  //   }
-  // }
-
+  // This is a new lifecycle in react v16.3 changing for componentWillReceiveProps
   static getDerivedStateFromProps(nextProps, prevState) {
     const { isAuthenticated, history } = nextProps;
     if (!isAuthenticated) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { isEmpty } from 'lodash';
+import PropTypes from 'prop-types';
 
 const warn = values => {
   const warnings = {}
@@ -26,8 +27,6 @@ const validate = values => {
   return errors;
 }
 
-const categories = [{id:1, name: "test"}, {id:2, name: "test2"}]
-
 const renderField = ({ input, label, type, meta: { touched, error, warning }}) => (
   <div>
     <label htmlFor="lable">{label}</label>
@@ -39,7 +38,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning }}) =
 );
 
 const PostForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting, categories } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
@@ -61,6 +60,10 @@ const PostForm = props => {
     </form>
   );
 }
+
+PostForm.propTypes = {
+  categories: PropTypes.array.isRequired,
+};
 
 export default reduxForm({
   form: 'postForm',

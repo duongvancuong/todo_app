@@ -25,7 +25,7 @@ export const getCategories = (token) => {
     url: URI_GET_CATEGORIES,
   }).then((res) => {
     return res.data;
-  }).catch((error) => {
-    throw new SubmissionError(error.data)
+  }).catch(({response}) => {
+    throw new SubmissionError(response.data.error_code)
   });
 };

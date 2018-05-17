@@ -15,6 +15,6 @@ export default combineReducers({
   videos,
   auth,
   instagramUser,
-  form: formReducer,
   postReducer,
+  form: formReducer,
 });

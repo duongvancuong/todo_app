@@ -6,7 +6,7 @@ export default function (state = initialState.categories, action) {
     case types.GET_CATEGORIES_SUCC:
       return { ...state, ...action.payload };
     case types.GET_CATEGORIES_FAIL:
-      return { ...state, errors: {error_code: action.error_code.message} }
+      return { ...state, errors: {error_code: action.error_code} }
     default:
       return state;
   }
