@@ -1,14 +1,14 @@
 import App from './App';
 import MediaGalleryPage from './containers/MediaGalleryPage';
-import AppTodo from './components/AppTodo'
+import AppTodo from './components/AppTodo';
 import LoginContainer from './containers/LoginContainer';
 import SignUpContainer from './containers/SignUpContainer';
 import Logout from './containers/Logout';
 import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
 import ProfileUserConext from './context/ProfileProvider';
 import renderDisplay from './hocs/DisplayListHOC';
-import InstagramApp from './containers/InstagramApp'
-
+import InstagramApp from './containers/InstagramApp';
+import PostContainer from './containers/PostsContainer';
 const routes = [
   {
     'path': '/',
@@ -59,6 +59,11 @@ const routes = [
   {
     'path': '/hocs/example',
     'component': renderDisplay,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/posts/new',
+    'component': PostContainer,
     'isRequireAuthenticated': false
   }
 ];
