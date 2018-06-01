@@ -9,6 +9,9 @@ import ProfileUserConext from './context/ProfileProvider';
 import renderDisplay from './hocs/DisplayListHOC';
 import InstagramApp from './containers/InstagramApp';
 import PostContainer from './containers/PostsContainer';
+import LanguageProvider from './context/LanguageProvider';
+import ContextModal from './context/ContextModal';
+
 const routes = [
   {
     'path': '/',
@@ -65,7 +68,17 @@ const routes = [
     'path': '/posts/new',
     'component': PostContainer,
     'isRequireAuthenticated': false
-  }
+  },
+  {
+    'path': '/context-example/header',
+    'component': LanguageProvider,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/context-example/modal',
+    'component': ContextModal,
+    'isRequireAuthenticated': false
+  },
 ];
 
 export default routes;
