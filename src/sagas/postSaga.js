@@ -5,7 +5,7 @@ import * as types from '../constants/actionTypes';
 export function* getCategoriesSaga() {
   try {
     const auth_token = yield select(getToken);
-    const { categories, error_code } = yield call(getCategories, auth_token);
+    const { categories } = yield call(getCategories, auth_token);
     yield [
       put({type: types.GET_CATEGORIES_SUCC, payload: categories}),
     ];

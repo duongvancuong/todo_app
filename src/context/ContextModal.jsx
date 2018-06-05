@@ -78,7 +78,7 @@ const TextModalContent = () => (
 
 const ImageModalContent = () => (
   <div>
-    <img src="http://storage.js-craft.io/examples/react-context-usecases/cool-cat.jpg" />
+    <img alt="test" src="http://storage.js-craft.io/examples/react-context-usecases/cool-cat.jpg" />
     <CloseButton />
   </div>
 );
