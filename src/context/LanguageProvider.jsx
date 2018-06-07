@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/context.css';
+// import '../styles/context.css';
 
 const LanguageContext = React.createContext();
 const LanguageConsumer = LanguageContext.Consumer;

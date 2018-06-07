@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
@@ -38,7 +38,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning }}) =
 );
 
 const PostForm = props => {
-  const { handleSubmit, pristine, reset, submitting, categories } = props;
+  const { handleSubmit, submitting, categories } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
