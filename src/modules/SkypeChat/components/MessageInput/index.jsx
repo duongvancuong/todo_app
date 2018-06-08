@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { setTypingValue, sendMessage } from "../../actions/typingAction";
-import "./MessageInput.css";
+
+import './MessageInput.scss';
+
+import { setTypingValue, sendMessage } from '../../../../actions/typingAction';
 
 class MessageInput extends Component {
   constructor(props) {

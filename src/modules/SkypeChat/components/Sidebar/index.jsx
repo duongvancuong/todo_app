@@ -1,6 +1,8 @@
 import React from "react";
+
+import "./Sidebar.scss";
+
 import User from "../../components/User";
-import "./Sidebar.css";
 
 const Sidebar = ({ contacts }) => {
   if (contacts) {

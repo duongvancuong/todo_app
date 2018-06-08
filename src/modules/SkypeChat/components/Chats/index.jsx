@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Chats.css";
+
+import "./Chats.scss";
 
 const Chat = ({ message }) => {
   const { text, is_user_msg } = message;

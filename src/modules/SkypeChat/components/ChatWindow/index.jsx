@@ -1,9 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
+
+import './ChatWindow.scss';
+
 import HeaderSkype from "../../components/HeaderSkype";
 import Chats from "../../components/Chats";
 import MessageInput from "../../components/MessageInput";
+
 
 const ChatWindow = ({ activeUserId, contacts, messages, typing }) => {
   const activeUser = contacts[activeUserId];

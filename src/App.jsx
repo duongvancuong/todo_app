@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-import './styles/App.css';
-// import Header from './common/Header';
-// import HomePage from './components/HomePage';
-import Sidebar from './components/Sidebar';
-import Main from './components/Main';
-import { getContact } from './actions/contactAction';
-import { getSkypeUser } from './actions/userSkypeAction';
-import { getMessages } from './actions/messageAction';
+import './App.scss';
+import Header from './common/Header';
+import HomePage from './components/HomePage'
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(getContact());
-    this.props.dispatch(getSkypeUser());
-    this.props.dispatch(getMessages());
-  }
-
   render() {
-    const { contacts, user, activeUserId } = this.props;
+    const { isAuthenticated } = this.props;
     return (
-      <div className="App">
-        <Sidebar contacts={_.values(contacts)} />
-        <Main user={user} activeUserId={activeUserId} />
+      <div className="container-fluid text-center">
+        <Header isAuthenticated={isAuthenticated}/>
+        <HomePage />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  // const { isAuthenticated } = state.auth;
-  const { contacts, user, activeUserId } = state;
+  const { isAuthenticated } = state.auth;
   return {
-    contacts,
-    // isAuthenticated,
-    user,
-    activeUserId,
+    isAuthenticated,
   }
 }
 export default connect(mapStateToProps)(App);

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setActiveUserId } from "../../actions/activeUserIdAction";
-import "./User.css";
+
+import './User.scss';
+
+import { setActiveUserId } from '../../../../actions/activeUserIdAction';
 
 class User extends Component {
   constructor(props) {

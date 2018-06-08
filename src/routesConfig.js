@@ -11,6 +11,7 @@ import InstagramApp from './containers/InstagramApp';
 import PostContainer from './containers/PostsContainer';
 import LanguageProvider from './context/LanguageProvider';
 import ContextModal from './context/ContextModal';
+import SkypeChat from './modules/SkypeChat';
 
 const routes = [
   {
@@ -77,6 +78,11 @@ const routes = [
   {
     'path': '/context-example/modal',
     'component': ContextModal,
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/example/skype-chat',
+    'component': SkypeChat,
     'isRequireAuthenticated': false
   },
 ];

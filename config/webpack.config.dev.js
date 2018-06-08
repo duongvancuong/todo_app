@@ -206,6 +206,11 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"],
+        exclude: [/\.sass$/, /\.scss$/]
+      },
       // ** STOP ** Are you adding a new loader?
       // Make sure to add the new loader(s) before the "file" loader.
     ],
