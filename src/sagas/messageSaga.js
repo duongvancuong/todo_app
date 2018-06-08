@@ -6,7 +6,7 @@ import { getMessages } from '../mockup/static-data';
 // for success or failure operation.
 export function* getMessagesAction() {
   try {
-    const messages = yield call(getMessages, 10);
+    const messages = yield call(getMessages, 50);
     yield [
       put({ type: types.GET_MSG_SUCC, messages })
     ];

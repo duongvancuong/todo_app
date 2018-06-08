@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import LazyLoad from 'react-lazyload';
+
 import "./Chats.scss";
 
 const Chat = ({ message }) => {
@@ -32,7 +34,9 @@ class Chats extends Component {
       return (
         <div className="Chats" ref={this.chatsRef}>
           {this.props.messages.map(message => (
-            <Chat message={message} key={message.number} />
+            <LazyLoad throttle={200}>
+              <Chat message={message} key={message.number} />
+            </LazyLoad>
           ))}
         </div>
       );
