@@ -20,7 +20,7 @@ class User extends Component {
     const { name, profile_pic, status } = this.props.user;
     return (
       <div className="User" onClick={this.handleUserClick}>
-        <LazyLoad once>
+        <LazyLoad height={100} once>
           <img src={profile_pic} alt={name} className="User__pic" />
         </LazyLoad>
         <div className="User__details">

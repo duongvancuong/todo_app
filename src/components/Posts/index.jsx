@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import "./Post.css";
+import '../Post/Post.scss';
 import Post from "../Post";
 
 export class Posts extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-
-  }
-
 	render({ loading, error, data }) {
     if (loading) return <p>Loaidng Post...</p>;
     if (error) return <p>Error loading Post</p>;

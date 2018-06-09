@@ -34,7 +34,7 @@ class Chats extends Component {
       return (
         <div className="Chats" ref={this.chatsRef}>
           {this.props.messages.map(message => (
-            <LazyLoad throttle={200}>
+            <LazyLoad throttle={200} height={200} key={`lazy${message.number}`}>
               <Chat message={message} key={message.number} />
             </LazyLoad>
           ))}
