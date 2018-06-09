@@ -1,7 +1,9 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+
 import routes from './routesConfig';
 import PrivateRoute from './PrivateRoute';
+import PageNotFound from './components/404';
 
 export default (
   <Switch>
@@ -14,6 +16,6 @@ export default (
         <Route key={index} path={route.path} component={route.component} exact={route.exact} />
       ))
     }
-    <Redirect to="/" />
+    <Route path="*" component={PageNotFound} />
   </Switch>
 );
