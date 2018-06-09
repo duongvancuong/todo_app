@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ submitForm, errors, children, errorsForm }) => (
+const LogInForm = ({ submitForm, errors, children, errorsForm }) => (
   <div className = "container">
     <div className="wrapper">
       <form name="Login_Form" onSubmit={submitForm} className="form-signin">
@@ -14,8 +14,8 @@ const LoginForm = ({ submitForm, errors, children, errorsForm }) => (
   </div>
 );
 
-LoginForm.propTypes = {
+LogInForm.propTypes = {
   submitForm: PropTypes.func.isRequired,
 };
 
-export default LoginForm;
+export default LogInForm;

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { requestLoginAction } from '../actions/userActions';
-import LoginForm from '../components/LoginForm';
-import FormInput from '../components/FormInput';
 import { Redirect } from 'react-router-dom';
-import { pwdValidateInput, emailValidateInput } from '../utils/inputValidate';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+
+import LogInForm from './components/LogInForm';
+import FormInput from '../../components/FormInput';
+
+import { requestLoginAction } from '../../actions/userActions';
+import { pwdValidateInput, emailValidateInput } from '../../utils/inputValidate';
 
 class LoginContainer extends Component {
   constructor(props){
@@ -81,7 +83,7 @@ class LoginContainer extends Component {
     }
     return (
       <div>
-        <LoginForm submitForm={this.submitForm} errorsForm={this.state.errorsForm} errors={this.props.errors} user={this.state.user} >
+        <LogInForm submitForm={this.submitForm} errorsForm={this.state.errorsForm} errors={this.props.errors} user={this.state.user} >
           <FormInput
             errorsField={this.state.errorsForm}
             type="text"
@@ -98,7 +100,7 @@ class LoginContainer extends Component {
             onChange={this.onChange}
             value={this.state.user.password}
             onBlur={this.handlePwdValidation} />
-        </LoginForm>
+        </LogInForm>
       </div>
     )
   }

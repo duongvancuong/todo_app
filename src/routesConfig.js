@@ -26,37 +26,32 @@ const routes = [
   },
   {
     'path': '/library',
-    'component': LoadableComponent('./containers/MediaGalleryPage'),
+    'component': LoadableComponent('./modules/MediaGalleryPage'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/todo',
-    'component': LoadableComponent('./components/Todo'),
-    'isRequireAuthenticated': true
+    'component': LoadableComponent('./modules/TodoApp'),
+    'isRequireAuthenticated': false
   },
   {
     'path': '/auth/login',
-    'component': LoadableComponent('./containers/LoginContainer'),
+    'component': LoadableComponent('./modules/LogIn'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/auth/sign-up',
-    'component': LoadableComponent('./containers/SignUpContainer'),
+    'component': LoadableComponent('./modules/SignUp'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/auth/logout',
-    'component': LoadableComponent('./containers/Logout'),
+    'component': LoadableComponent('./modules/Logout'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/instagram/owner',
-    'component': LoadableComponent('./containers/InstagramUserProfileContainer'),
-    'isRequireAuthenticated': false
-  },
-  {
-    'path': '/instagram/app',
-    'component': LoadableComponent('./containers/InstagramApp'),
+    'component': LoadableComponent('./modules/InstagramUserProfile'),
     'isRequireAuthenticated': false
   },
   {

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { searchMediaAction, selectImageAction, selectVideoAction } from '../actions/mediaActions';
-import PhotoPage from '../components/PhotoPage';
-import VideoPage from '../components/VideoPage';
-import '../styles/style.css';
+
+import './style.scss';
+
+import { searchMediaAction, selectImageAction, selectVideoAction } from '../../actions/mediaActions';
+import PhotoPage from './components/PhotoPage';
+import VideoPage from './components/VideoPage';
 
 // MediaGalleryPage Component
 class MediaGalleryPage extends Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InstagramUserProfile = ({ user }) => (
+const UserProfile = ({ user }) => (
   <div className="container profile">
     <div className="row">
       <div className="span12">
@@ -40,8 +40,8 @@ const InstagramUserProfile = ({ user }) => (
   </div>
 );
 
-InstagramUserProfile.propTypes = {
+UserProfile.propTypes = {
   user: PropTypes.object.isRequired,
 };
 
-export default InstagramUserProfile;
+export default UserProfile;

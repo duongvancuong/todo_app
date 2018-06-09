@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './App.scss';
 
 import Header from './common/Header';
-import HomePage from './components/HomePage'
+import HomePage from './common/HomePage';
 class App extends Component {
   render() {
     const { isAuthenticated } = this.props;

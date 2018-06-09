@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// First, we extract videos, onHandleSelectVideo, and selectedVideo
-// from props using destructuring assignment and then render.
 const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => (
   <div className="col-md-6">
     <h2> Videos </h2>
@@ -22,7 +20,6 @@ const VideosPage = ({ videos, onHandleSelectVideo, selectedVideo }) => (
   </div>
 );
 
-// Define PropTypes
 VideosPage.propTypes = {
   videos: PropTypes.array.isRequired,
   selectedVideo: PropTypes.object.isRequired,

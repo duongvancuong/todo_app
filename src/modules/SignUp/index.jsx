@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import SignUpForm from '../components/SignUpForm';
-import { requestRegisterAction } from '../actions/userActions';
 
-class SignUpContainer extends Component {
+import SignUpForm from './components/SignUpForm';
+import { requestRegisterAction } from '../../actions/userActions';
+
+class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -61,4 +62,4 @@ const mapStateToProp = (state) => {
   }
 };
 
-export default connect(mapStateToProp)(SignUpContainer);
+export default connect(mapStateToProp)(SignUp);
