@@ -1,82 +1,87 @@
-import App from './App';
-import MediaGalleryPage from './containers/MediaGalleryPage';
-import AppTodo from './components/AppTodo';
-import LoginContainer from './containers/LoginContainer';
-import SignUpContainer from './containers/SignUpContainer';
-import Logout from './containers/Logout';
-import InstagramUserProfileContainer from './containers/InstagramUserProfileContainer';
-import ProfileUserConext from './context/ProfileProvider';
-import renderDisplay from './hocs/DisplayListHOC';
-import InstagramApp from './containers/InstagramApp';
-import PostContainer from './containers/PostsContainer';
-import LanguageProvider from './context/LanguageProvider';
-import ContextModal from './context/ContextModal';
+import React  from 'react';
+import Loading from 'react-loading-components';
+import Loadable from 'react-loadable';
+
+const LoadableComponent = (url) => Loadable({
+  loader: () => import('' + url),
+  loading: LoadingComp,
+  delay: 300
+});
+
+const LoadingComp = (props) => {
+  if (props.error) {
+    return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
+  } else {
+    return <Loading type='ball_triangle' width={100} height={100} fill='#f44242' />;
+  }
+}
+
 
 const routes = [
   {
     'path': '/',
-    'component': App,
+    'component': LoadableComponent('./App'),
     'exact': true,
     'isRequireAuthenticated': false
   },
   {
     'path': '/library',
-    'component': MediaGalleryPage,
-    'isRequireAuthenticated': true
+    'component': LoadableComponent('./modules/MediaGalleryPage'),
+    'isRequireAuthenticated': false
   },
   {
     'path': '/todo',
-    'component': AppTodo,
-    'isRequireAuthenticated': true
+    'component': LoadableComponent('./modules/TodoApp'),
+    'isRequireAuthenticated': false
   },
   {
     'path': '/auth/login',
-    'component': LoginContainer,
+    'component': LoadableComponent('./modules/LogIn'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/auth/sign-up',
-    'component': SignUpContainer,
+    'component': LoadableComponent('./modules/SignUp'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/auth/logout',
-    'component': Logout,
+    'component': LoadableComponent('./modules/Logout'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/instagram/owner',
-    'component': InstagramUserProfileContainer,
-    'isRequireAuthenticated': false
-  },
-  {
-    'path': '/instagram/app',
-    'component': InstagramApp,
+    'component': LoadableComponent('./modules/InstagramUserProfile'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/study/react-context',
-    'component': ProfileUserConext,
+    'component': LoadableComponent('./context/ProfileProvider'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/hocs/example',
-    'component': renderDisplay,
+    'component': LoadableComponent('./hocs/DisplayListHOC'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/posts/new',
-    'component': PostContainer,
+    'component': LoadableComponent('./containers/PostsContainer'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/context-example/header',
-    'component': LanguageProvider,
+    'component': LoadableComponent('./context/LanguageProvider'),
     'isRequireAuthenticated': false
   },
   {
     'path': '/context-example/modal',
-    'component': ContextModal,
+    'component': LoadableComponent('./context/ContextModal'),
+    'isRequireAuthenticated': false
+  },
+  {
+    'path': '/example/skype-chat',
+    'component': LoadableComponent('./modules/SkypeChat'),
     'isRequireAuthenticated': false
   },
 ];
