@@ -1,6 +1,7 @@
 import React  from 'react';
-import Loading from 'react-loading-components';
 import Loadable from 'react-loadable';
+
+import LoadingSpinner from './components/LoadingSpinner';
 
 const LoadableComponent = (url) => Loadable({
   loader: () => import('' + url),
@@ -12,7 +13,7 @@ const LoadingComp = (props) => {
   if (props.error) {
     return <div>Error! <button onClick={ props.retry }>Retry</button></div>;
   } else {
-    return <Loading type='ball_triangle' width={100} height={100} fill='#f44242' />;
+    return <LoadingSpinner />;
   }
 }
 
