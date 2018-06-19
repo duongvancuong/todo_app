@@ -14,6 +14,11 @@ class Toggle extends Component {
     stateReducer: (state, changes) => changes,
   }
 
+  static stateChangeTypes = {
+    reset: '__toggle_reset__',
+    toggle: '__toggle_toggele__',
+  }
+
   initialState = {on: this.props.initialOn};
   state = this.initialState;
   initernalSetState(changes, callback) {
@@ -24,18 +29,23 @@ class Toggle extends Component {
       // apply reducer
       const reducedChanges =
         this.props.stateReducer(state, changesObject) || {};
+      // remove the type when it is not set into state
+      const { type: ignoredType, ...onlyChange } = reducedChanges;
       // return null if there are no changes to be made (avoid an unecessary rerender)
-      return Object.keys(reducedChanges).length
-        ? reducedChanges
+      return Object.keys(onlyChange).length
+        ? onlyChange
         : null
     }, callback);
   };
 
   reset = () =>
-    this.initernalSetState(this.initialState, () => this.props.onReset(this.state.on));
+    this.initernalSetState(
+      { ...this.initialState, type: Toggle.stateChangeTypes.reset },
+      () => this.props.onReset(this.state.on));
 
-  toggle = () => this.initernalSetState(
-      ({ on }) => ({ on: !on }),
+  toggle = ({ type = Toggle.stateChangeTypes.toggle } = {}) =>
+    this.initernalSetState(
+      ({ on }) => ({ type, on: !on }),
       () => this.props.onToggle(this.state.on)
     );
 
@@ -80,9 +90,14 @@ class StateReducer extends Component {
   }
 
   toggleStateReducer = (state, changes) => {
+    if (changes.type === 'forced') {
+      return changes;
+    }
+
     if (this.state.timeClicked >= 4) {
       return {...changes, on: false};
     }
+
     return changes;
   }
 
@@ -105,6 +120,8 @@ class StateReducer extends Component {
             {timeClicked > 4 ? (
               <div data-testid="notice">
                 you clicked too much!
+                <br/>
+                <button onClick={() => {props.toggle({type: 'forced'})}}>Force Toggle</button>
               </div>
             ) : timeClicked > 0 ? (
               <div data-testid="click-count">
