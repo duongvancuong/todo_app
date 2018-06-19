@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Switch from './components/Switch';
 import { Toggle, withToggle } from './components/Toggle';
+import StateReducer from './components/StateReducer';
+import PropControlled from './components/PropControlled';
 
 // 🐻 Hi there! Here's an example of using the compound components API!
 // They allow users of your component to ignore the implicit state that's
@@ -160,6 +162,10 @@ class MixingComponent extends Component {
         <hr />
         <Title>🐸 Higher Order Component</Title>
         <HOC onToggle={onToggle} />
+        <Title>State Reducer</Title>
+        <StateReducer />
+        <Title>Prop Controlled</Title>
+        <PropControlled />
       </div>
     );
   }
