@@ -85,6 +85,11 @@ const routes = [
     'component': LoadableComponent('./modules/SkypeChat'),
     'isRequireAuthenticated': false
   },
+  {
+    'path': '/example/mixing-components',
+    'component': LoadableComponent('./modules/MixingComponent'),
+    'isRequireAuthenticated': false
+  },
 ];
 
 export default routes;
