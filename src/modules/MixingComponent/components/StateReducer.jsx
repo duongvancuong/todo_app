@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import hoistNonReactStatics from "hoist-non-react-statics";
 
 import Switch from './Switch';
 // => callAll đây là cách compose các functions với nhau.

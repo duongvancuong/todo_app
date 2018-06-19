@@ -8,7 +8,7 @@ class Switch extends Component {
 
   render() {
     const { className = "", ...props } = this.props;
-    const on = this.props["aria-pressed"];
+    const on = this.props["aria-pressed"] || this.props.on;
     const btnClassName = [
       className,
       "toggle-btn",
