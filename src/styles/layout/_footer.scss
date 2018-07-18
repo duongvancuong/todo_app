@@ -1,0 +1,82 @@
+.main-footer {
+  width: 100%;
+  color: $color-white;
+  background-color: $color-bg-footer;
+
+  &__title,
+  &__title > a {
+    color: $color-white;
+  }
+
+  &__section {
+    padding: 12px 0;
+    width: 47%;
+
+    @include tablet {
+      padding: 18px 0;
+    }
+  }
+
+  &__head-border {
+    border-top: 0;
+
+    @include tablet {
+      border-top: 1px solid $color-white;
+    }
+  }
+
+  &__head {
+    padding-bottom: 10px;
+    font-weight: $font-weight-normal;
+    font-size: 1.1rem;
+
+    @include tablet {
+      font-size: 15px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $color-white;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    position: relative;
+    transition: opacity 0.25s;
+
+    @include tablet {
+      font-size: 1.3rem;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__copyright {
+    display: block;
+    font-size: 11px;
+    text-align: center;
+    padding: 12px 0;
+
+    @include tablet {
+      padding: 20px 0;
+    }
+  }
+
+  &__logo {
+    height: 30px;
+    max-width: 157px;
+  }
+
+  &__box.u-mb-2 {
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__box.u-pl-2 {
+    @include tablet {
+      padding-left: 0;
+    }
+  }
+}
