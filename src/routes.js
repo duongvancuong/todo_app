@@ -11,9 +11,9 @@ export default (
       routes.map((route, index) => (
         route.isRequireAuthenticated
         ?
-        <PrivateRoute exact={route.exact} key={index} path={route.path} component={route.component} />
+        <PrivateRoute name={route.name} exact={route.exact} key={index} path={route.path} component={route.component} />
         :
-        <Route key={index} path={route.path} component={route.component} exact={route.exact} />
+        <Route name={route.name} key={index} path={route.path} component={route.component} exact={route.exact} />
       ))
     }
     <Route path="*" component={PageNotFound} />
