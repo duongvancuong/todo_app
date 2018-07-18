@@ -1,0 +1,199 @@
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: $color-primary;
+  line-height: 60px;
+  max-height: 60px;
+  padding: 5px 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  z-index: $zindex-header;
+
+  &__toggle {
+    display: inline-block;
+    color: $color-white;
+    background: transparent;
+    padding: 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__brand {
+    max-width: 94px;
+    overflow: hidden;
+    display: block;
+
+    @include tablet {
+      max-width: 157px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 18px;
+    display: inline-block;
+
+    @include tablet {
+      max-height: 30px;
+    }
+  }
+
+  &__content {
+    height: 44px;
+
+    @include tablet {
+      height: 50px;
+    }
+  }
+
+  &__notification {
+    display: none;
+
+    @include tablet {
+      display: block;
+      padding-left: 30px;
+      padding-right: 40px;
+    }
+  }
+
+  &__notification-box {
+    position: relative;
+
+    i {
+      font-size: 22px;
+      width: 18px;
+      height: 23px;
+    }
+  }
+
+  &__notification-icon {
+    color: $color-grey-light;
+    font-size: 19px;
+  }
+
+  &__notification-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color-white;
+    width: 14px;
+    height: 14px;
+    background: $color-orange;
+    border-radius: 50%;
+    border: 1px solid $color-white;
+    // line-height: 1;
+    text-align: center;
+    font-size: 9px;
+
+    @include tablet {
+      top: -4px;
+      right: -14px;
+      width: 18px;
+      height: 18px;
+      line-height: 1.6;
+      font-size: 10px;
+    }
+  }
+}
+
+/**
+* Main site navigation
+*/
+.site-nav {
+  display: flex;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-silver;
+    line-height: 50px;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      background: rgba($color-black, 0.2);
+    }
+
+    @include tablet {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    line-height: 1;
+    display: block;
+    padding: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color-grey;
+
+    @include tablet {
+      color: $color-white;
+    }
+  }
+
+  &__login,
+  &__signup {
+    border: 1px solid $color-white;
+    padding: 14px 23px;
+  }
+
+  &__signup {
+    max-width: 96px;
+    font-size: 12px;
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid $color-white;
+    color: $color-white;
+
+    @include tablet {
+      min-width: 200px;
+      max-width: 243px;
+      font-size: initial;
+      padding: 13px 16px;
+    }
+  }
+
+  &__login {
+    border-radius: 3px;
+    background: $color-white;
+    color: $color-link;
+    margin-left: 8px;
+    text-align: center;
+    min-width: 96px;
+    font-size: 12px;
+
+    @include tablet {
+      min-width: 150px;
+      padding: 13px;
+      font-size: initial;
+    }
+  }
+
+  &--active {
+    transition: 0.25s;
+    transform: none;
+    box-shadow: 0 2px 6px 0 rgba($color-black, 0.42);
+
+    > .grid__item {
+      margin: 10px 0;
+    }
+
+    .btn__login {
+      min-width: 292px;
+    }
+  }
+
+  &--logged-in {
+    display: none;
+
+    @include tablet {
+      display: inline;
+    }
+  }
+}
