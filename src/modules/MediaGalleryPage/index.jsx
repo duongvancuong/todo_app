@@ -8,6 +8,13 @@ import { searchMediaAction, selectImageAction, selectVideoAction } from '../../a
 import PhotoPage from './components/PhotoPage';
 import VideoPage from './components/VideoPage';
 
+import {
+  makeGetImagesSelector,
+  makeGetVideosSelector,
+  makeSelectImageSelector,
+  makeSelectVideoSelector,
+} from '../../selector/LibrarySelector';
+
 // MediaGalleryPage Component
 class MediaGalleryPage extends Component {
   constructor () {
@@ -85,15 +92,16 @@ MediaGalleryPage.propTypes = {
   selectedVideo: PropTypes.object,
   dispatch: PropTypes.func.isRequired
 };
- // Subscribe component to redux store and merge the state into component's props
-const mapStateToProps = (state) => {
-  const { images, videos } = state;
-  return {
-    images: images[0],
-    selectedImage: images.selectedImage,
-    videos: videos[0],
-    selectedVideo: videos.selectedVideo
+
+const makeMapStateToProp = () => {
+  const mapStateToProps = (state) => {
+    return {
+      images: makeGetImagesSelector(state)(state),
+      videos: makeGetVideosSelector(state)(state),
+      selectedImage: makeSelectImageSelector(state)(state),
+      selectedVideo: makeSelectVideoSelector(state)(state),
+    }
   }
-};
-// connect method from react-router connects the component with redux store
-export default connect(mapStateToProps)(MediaGalleryPage);
+  return mapStateToProps;
+}
+export default connect(makeMapStateToProp)(MediaGalleryPage);
