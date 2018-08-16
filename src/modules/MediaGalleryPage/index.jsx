@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 
 import './style.scss';
 
-import { searchMediaAction, selectImageAction, selectVideoAction } from '../../actions/mediaActions';
+import {
+  searchMediaAction,
+  selectImageAction,
+  selectVideoAction
+} from '../../actions/mediaActions';
 import PhotoPage from './components/PhotoPage';
 import VideoPage from './components/VideoPage';
 

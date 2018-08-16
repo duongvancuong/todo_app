@@ -1,15 +1,17 @@
+import { createActions, handleActions, combineActions } from 'redux-actions';
+
 import initialState from './initialState';
 import * as types from '../constants/actionTypes';
 
-// Handles video related actions
-// The idea is to return an updated copy of the state depending on the action type.
-export default function (state = initialState.videos, action) {
-  switch (action.type) {
-    case types.SHUTTER_VIDEOS_SUCCESS:
-      return [...state, action.videos];
-    case types.SELECTED_VIDEO:
-      return { ...state, selectedVideo: action.video };
-    default:
-      return state;
-  }
-}
+export default handleActions(
+  {
+    SHUTTER_VIDEOS_SUCCESS: (state, action) => {
+      return [...state, action.payload.videos]
+    },
+
+    SELECTED_VIDEO: (state, action) => ({
+      ...state, selectedVideo: action.payload.video
+    }),
+  },
+  { images: [] }
+);
