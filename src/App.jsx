@@ -5,13 +5,14 @@ import './App.scss';
 
 import Header from './common/Header';
 import HomePage from './common/HomePage';
+import TodoList from './modules/TodoAppWithCan';
 class App extends Component {
   render() {
     const { isAuthenticated } = this.props;
     return (
-      <div className="container-fluid text-center">
+      <div className="container-fluid text-center todoapp">
         <Header isAuthenticated={isAuthenticated}/>
-        <HomePage />
+        <TodoList />
       </div>
     );
   }
