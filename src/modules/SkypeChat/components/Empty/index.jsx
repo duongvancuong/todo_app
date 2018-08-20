@@ -1,7 +1,7 @@
 import React from "react";
 import isEmpty from 'lodash/isEmpty';
 
-import "./Empty.scss";
+// import "./Empty.scss";
 
 const Empty = ({ user }) => {
   if (!isEmpty(user)) {

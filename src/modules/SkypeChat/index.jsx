@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import './SkypeChat.scss';
+// import './SkypeChat.scss';
 
 import { getContact } from '../../actions/contactAction';
 import { getSkypeUser } from '../../actions/userSkypeAction';

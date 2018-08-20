@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import './PageNotFound.scss'
+// import './PageNotFound.scss'
 
 export default class PageNotFound extends PureComponent {
   render() {

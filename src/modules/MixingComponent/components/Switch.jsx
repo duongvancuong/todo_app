@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import '../MixingComponent.scss';
+// import '../MixingComponent.scss';
 
 class Switch extends Component {
   static propTypes = {}

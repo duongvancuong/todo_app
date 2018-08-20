@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Main.scss";
+// import "./Main.scss";
 
 import Empty from "../../components/Empty";
 import ChatWindow from "../../components/ChatWindow";

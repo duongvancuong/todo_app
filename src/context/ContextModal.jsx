@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../styles/Modal.css';
+// import '../styles/Modal.css';
 const ModalContext = React.createContext();
 const Consumer = ModalContext.Consumer;
 

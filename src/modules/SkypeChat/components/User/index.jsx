@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LazyLoad from 'react-lazyload';
 
-import './User.scss';
+// import './User.scss';
 
 import { setActiveUserId } from '../../../../actions/activeUserIdAction';
 

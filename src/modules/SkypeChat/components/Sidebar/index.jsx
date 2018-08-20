@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Sidebar.scss";
+// import "./Sidebar.scss";
 
 import User from "../../components/User";
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import LazyLoad from 'react-lazyload';
 
-import "./Chats.scss";
+// import "./Chats.scss";
 
 const Chat = ({ message }) => {
   const { text, is_user_msg } = message;

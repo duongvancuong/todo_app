@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import './MessageInput.scss';
+// import './MessageInput.scss';
 
 import { setTypingValue, sendMessage } from '../../../../actions/typingAction';
 

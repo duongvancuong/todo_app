@@ -22,7 +22,7 @@ const routes = [
   {
     'name': 'Home',
     'path': '/',
-    'component': LoadableComponent('./App'),
+    'component': LoadableComponent('./modules/App'),
     'exact': true,
     'isRequireAuthenticated': false
   },

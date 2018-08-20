@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./HeaderSkype.scss";
+// import "./HeaderSkype.scss";
 
 const HeaderSkype = ({ user }) => {
   const { name, status } = user;

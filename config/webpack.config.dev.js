@@ -193,13 +193,10 @@ module.exports = {
             use: [
               require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
+                loader: require.resolve('sass-loader'),
                 options: {
                   importLoaders: 1,
                 },
-              },
-              {
-                loader: require.resolve('sass-loader'),
               },
               {
                 loader: require.resolve('postcss-loader'),

@@ -4,8 +4,9 @@ import { render } from 'react-dom';
 import createHashHistory from 'history/createHashHistory';
 import { ConnectedRouter } from 'react-router-redux';
 
+import './lib';
 import routes from './routes';
-import './index.css';
+import './styles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore';
 

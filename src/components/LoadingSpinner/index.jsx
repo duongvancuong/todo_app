@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Loading.scss';
+// import './Loading.scss';
 
 const LoadingSpinner = () => (
   <div className='loading_spinner-wrap'>
